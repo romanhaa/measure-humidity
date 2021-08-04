@@ -1,6 +1,8 @@
 # Collecting and visualizing temperature and humidity measurements
 
-Make Raspberry Pi collect mesaurements from Arduino board with sensor.
+Connect temperature/humidity sensor to Arduino board and make it run the program in [`TimeSerial.ino`](TimeSerial.ino).
+
+Connect Arduino board to Raspberry Pi and collect measurements.
 
 ```sh
 screen -S arduino
