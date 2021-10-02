@@ -39,6 +39,6 @@ Rscript plot_humidity_temp.R
 Launch Shiny app to interactively visualize temperature and humidity.
 
 ```sh
-export PATH_DATA=/Users/roman/github/humidity
+export PATH_DATA=/Users/roman/github/measure_humidity
 Rscript run_app.R
 ```
