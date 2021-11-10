@@ -23,7 +23,7 @@ def do_this(file_existing: str, file_append: str, file_out: str):
     # merge existing and new data
     df_new = df.append(df_append)
     df_new = df_new.sort_values("date")
-    df_new = df_new.drop_duplicates(keep=False)
+    df_new = df_new.drop_duplicates(keep='first')
     # print(df_new)
     df_new.to_csv(file_out, sep="\t", index=False)
 
