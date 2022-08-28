@@ -26,7 +26,8 @@ rsync -arh --progress --partial pi@192.168.2.18:/home/pi/humidity.tsv ./humidity
 Merge previously fetched data with new data.
 
 ```sh
-mkvirtualenv humidity
+# mkvirtualenv humidity
+workon humidity
 python merge_tsvs.py --file_existing humidity_data.tsv --file_append humidity_new_data.tsv --file_out humidity_data.tsv
 ```
 
