@@ -43,3 +43,31 @@ Launch Shiny app to interactively visualize temperature and humidity.
 export PATH_DATA=/Users/roman/git/measure-humidity
 Rscript run_app.R
 ```
+
+## Other
+
+```py
+import pandas as pd
+
+df = pd.read_table('humidity_data.tsv', sep='\t')
+df[['day', 'time']] = df["date"].str.split(" ", 1, expand=True)
+df_median = df[['day', 'temperature', 'humidity']].groupby(['day'], as_index=False).median()
+```
+
+```py
+import plotly.express as px
+
+fig = px.bar(df_median, y='humidity', x='day', text_auto='.2s')
+fig.update_traces(textfont_size=12, textangle=0, textposition="outside", cliponaxis=False)
+fig.show()
+```
+
+```py
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+
+fig = make_subplots(rows=2, cols=1, start_cell="top-left")
+fig.add_trace(go.Bar(x=df_median["day"], y=df_median["humidity"]), row=1, col=1)
+fig.add_trace(go.Bar(x=df_median["day"], y=df_median["temperature"]), row=2, col=1)
+fig.show()
+```
